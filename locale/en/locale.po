@@ -1,0 +1,93 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-20T00:00:00+00:00\n"
+"PO-Revision-Date: 2026-08-20T00:00:00+00:00\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "plugins.importexport.scopus.displayName"
+msgstr "Scopus Export Plugin"
+
+msgid "plugins.importexport.scopus.description"
+msgstr ""
+"This plugin exports your journal's Version of Record articles to Scopus. The uploaded JATS "
+"full-text document and the primary PDF galley are both delivered, as separate files. Content may "
+"be downloaded for later delivery to Scopus, or delivered directly to your account on the Scopus "
+"SFTP server by configuring your credentials below."
+
+msgid "plugins.importexport.scopus.description.short"
+msgstr ""
+"This plugin exports your journal's Version of Record articles (full-text XML and PDF) to Scopus. "
+"Content may be downloaded for later delivery to Scopus, or delivered directly to your account on "
+"the Scopus SFTP server."
+
+msgid "plugins.importexport.scopus.sftpLibraryMissing"
+msgstr ""
+"<blockquote style=\"border: 1px solid; padding: 1em;\"><strong>⚠️ Warning:</strong> "
+"The <code>league/flysystem-sftp-v3</code> library is missing from your server. To install it, run:\n"
+"<pre><code>composer -d lib/pkp require league/flysystem-sftp-v3</code></pre>"
+"...or upgrade to a newer release of OJS. Until this is resolved, <strong>deposits will not work</strong>.</blockquote>"
+
+msgid "plugins.importexport.scopus.endpoint"
+msgstr "Scopus SFTP Account"
+
+msgid "plugins.importexport.scopus.host"
+msgstr "Hostname"
+
+msgid "plugins.importexport.scopus.username"
+msgstr "Username"
+
+msgid "plugins.importexport.scopus.password"
+msgstr "Password"
+
+msgid "plugins.importexport.scopus.path"
+msgstr "Path (optional)"
+
+msgid "plugins.importexport.scopus.port"
+msgstr "Port (optional, defaults to 22)"
+
+msgid "plugins.importexport.scopus.submit.success"
+msgstr "Articles submitted for delivery."
+
+msgid "plugins.importexport.scopus.settings.form.automaticRegistration.description"
+msgstr ""
+"OJS will deliver content to Scopus automatically once it is published. Please note that this may "
+"take a short amount of time after publication to process (e.g. depending on "
+"your cronjob configuration). You can check for all undelivered content in the export tab."
+
+msgid "plugins.importexport.scopus.settings.form.accountIncomplete"
+msgstr "Please provide the hostname, username and password, or leave all three blank."
+
+msgid "plugins.importexport.scopus.settings.form.automaticRegistrationRequiresAccount"
+msgstr "Automatic registration requires a complete SFTP account: please provide the hostname, username and password."
+
+msgid "plugins.importexport.scopus.senderTask.name"
+msgstr "Scopus automatic delivery task"
+
+msgid "plugins.importexport.scopus.export.failure.settings"
+msgstr "To deliver content to Scopus you must set up the SFTP account in the settings tab."
+
+msgid "plugins.importexport.scopus.export.failure.creatingCollectionFile"
+msgstr "Failed to create the zip file for the export."
+
+msgid "plugins.importexport.scopus.export.failure.noUploadedJats"
+msgstr "'{$param}' has no uploaded JATS full-text document. Scopus requires one, so it cannot be exported/deposited."
+
+msgid "plugins.importexport.scopus.export.failure.noPdf"
+msgstr "'{$param}' has no PDF galley. Scopus requires one, so it cannot be exported/deposited."
+
+msgid "plugins.importexport.scopus.export.failure.multiplePdf"
+msgstr "'{$param}' has more than one PDF galley in its own locale. Scopus expects exactly one, so it cannot be exported/deposited."
+
+msgid "plugins.importexport.scopus.export.failure.missingArticleNumber"
+msgstr "'{$param}' has no article number set. This journal requires one for export/deposit."
+
+msgid "plugins.generic.scopus.displayName"
+msgstr "Scopus Plugin"
+
+msgid "plugins.generic.scopus.description"
+msgstr "Exports and delivers the Version of Record's uploaded JATS full-text document and PDF to Scopus."
