@@ -444,7 +444,17 @@ class ScopusExportPlugin extends PubObjectsExportPlugin implements HasTaskSchedu
         $fallbackId = $object instanceof Submission ? $object->getId() : $object->getData('submissionId');
         $articleId = ($context->getData('enableArticleNumber') ? $publication->getData('articleNumber') : null) ?: $fallbackId;
 
-        return $this->buildAcronym($context) . '_' . $articleId . '_' . $publication->getData('versionStage') . $publication->getData('versionMajor');
+        return $this->buildAcronym($context) . '_' . $this->sanitizeForFileName((string) $articleId) . '_' . $publication->getData('versionStage') . $publication->getData('versionMajor');
+    }
+
+    /**
+     * Replace characters unsafe for a filename with underscores, collapsing runs into one --
+     * e.g. a migrated article number like "1:137" becomes "1_137", not "1137" (which would
+     * lose the separator and could then collide with another article literally numbered 1137).
+     */
+    protected function sanitizeForFileName(string $value): string
+    {
+        return preg_replace('/[^a-zA-Z0-9\-]+/', '_', $value);
     }
 
     /**
