@@ -20,10 +20,7 @@ msgstr ""
 "SFTP server by configuring your credentials below."
 
 msgid "plugins.importexport.scopus.description.short"
-msgstr ""
-"This plugin exports your journal's Version of Record articles (full-text XML and PDF) to Scopus. "
-"Content may be downloaded for later delivery to Scopus, or delivered directly to your account on "
-"the Scopus SFTP server."
+msgstr "Export journal articles to Scopus."
 
 msgid "plugins.importexport.scopus.sftpLibraryMissing"
 msgstr ""
