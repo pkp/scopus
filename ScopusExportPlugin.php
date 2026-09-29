@@ -361,13 +361,6 @@ class ScopusExportPlugin extends PubObjectsExportPlugin implements HasTaskSchedu
 
         $label = $submissionId . ' ' . $publication->getData('versionStage') . $publication->getData('versionMajor');
 
-        // A journal using article-number naming must supply one for every article --
-        // falling back to the internal ID here would risk colliding with another
-        // article's own article number.
-        if ($context->getData('enableArticleNumber') && empty($publication->getData('articleNumber'))) {
-            return ['error' => ['plugins.importexport.scopus.export.failure.missingArticleNumber', $label]];
-        }
-
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = [];
@@ -436,25 +429,14 @@ class ScopusExportPlugin extends PubObjectsExportPlugin implements HasTaskSchedu
     }
 
     /**
-     * Build the delivered documents' filename (without extension): {acronym}_{articleId}_{versionStage}{versionMajor}.
+     * Build the delivered documents' filename (without extension): {acronym}_{submissionId}_{versionStage}{versionMajor}.
      */
     public function buildFileName(Submission|Publication $object, Context $context): string
     {
         $publication = $object instanceof Publication ? $object : $object->getCurrentPublication();
-        $fallbackId = $object instanceof Submission ? $object->getId() : $object->getData('submissionId');
-        $articleId = ($context->getData('enableArticleNumber') ? $publication->getData('articleNumber') : null) ?: $fallbackId;
+        $submissionId = $object instanceof Submission ? $object->getId() : $object->getData('submissionId');
 
-        return $this->buildAcronym($context) . '_' . $this->sanitizeForFileName((string) $articleId) . '_' . $publication->getData('versionStage') . $publication->getData('versionMajor');
-    }
-
-    /**
-     * Replace characters unsafe for a filename with underscores, collapsing runs into one --
-     * e.g. a migrated article number like "1:137" becomes "1_137", not "1137" (which would
-     * lose the separator and could then collide with another article literally numbered 1137).
-     */
-    protected function sanitizeForFileName(string $value): string
-    {
-        return preg_replace('/[^a-zA-Z0-9\-]+/', '_', $value);
+        return $this->buildAcronym($context) . '_' . $submissionId . '_' . $publication->getData('versionStage') . $publication->getData('versionMajor');
     }
 
     /**

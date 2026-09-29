@@ -80,9 +80,6 @@ msgstr "'{$param}' has no PDF galley. Scopus requires one, so it cannot be expor
 msgid "plugins.importexport.scopus.export.failure.multiplePdf"
 msgstr "'{$param}' has more than one PDF galley in its own locale. Scopus expects exactly one, so it cannot be exported/deposited."
 
-msgid "plugins.importexport.scopus.export.failure.missingArticleNumber"
-msgstr "'{$param}' has no article number set. This journal requires one for export/deposit."
-
 msgid "plugins.generic.scopus.displayName"
 msgstr "Scopus Plugin"
 
